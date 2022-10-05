@@ -5,6 +5,9 @@ export class Guid {
     public static EMPTY = "00000000-0000-0000-0000-000000000000";
 
     public static isGuid(guid: any) {
+        if (typeof(guid) === 'undefined' || guid === null || guid === "") {
+            return false;
+        }
         const value: string = guid.toString();
         return guid && (guid instanceof Guid || Guid.validator.test(value));
     }
